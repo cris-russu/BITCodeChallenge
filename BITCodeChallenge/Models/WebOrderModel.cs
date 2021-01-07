@@ -10,48 +10,49 @@ namespace BITCodeChallenge.Models
     public class WebOrderModel
     {
         private string datePattern = "yyyyMMdd";
-        
+
         [XmlAttribute("id")]
         public int ID { get; set; }
-        
+
         [XmlElement(ElementName = "Date")]
         public string Date { get; set; }
-        
+
         [XmlElement(ElementName = "Customer")]
         public string Customer { get; set; }
-        
+
         [XmlArray("Items")]
         [XmlArrayItem("Item")]
         public List<ItemModel> Items = new List<ItemModel>();
 
         public decimal Total { get; set; }
         public decimal AvgUnitPrice { get; set; }
-        public WebOrderModel()        {
-            
+        public WebOrderModel()
+        {
+
         }
 
         public DateTime GetParsedDate()
         {
             DateTime parsedDate;
             if (DateTime.TryParseExact(Date, datePattern, null, DateTimeStyles.None, out parsedDate))
-                return DateTime.ParseExact(Date, datePattern, CultureInfo.InvariantCulture );
+                return DateTime.ParseExact(Date, datePattern, CultureInfo.InvariantCulture);
             else
-                return parsedDate; 
-            
+                return parsedDate;
+
         }
-        
+
         public T DeserializeToObject<T>(string filepath) where T : class
         {
             XmlSerializer ser = new XmlSerializer(typeof(T));
 
             using StreamReader sr = new StreamReader(filepath);
-                return (T)ser.Deserialize(sr);
-            }
+            return (T)ser.Deserialize(sr);
         }
+
 
         public override string ToString()
         {
-            string returnString = $"WebOrder ID: {ID} " +
+            string returnString = $"WebOrder ID: {this.ID} " +
                                   $"{Environment.NewLine} Customer: {Customer}" +
                                   $"{Environment.NewLine} Date: {Date}" +
                                   $"{Environment.NewLine}";
@@ -64,8 +65,8 @@ namespace BITCodeChallenge.Models
 
             return returnString;
         }
-
     }
+
 
     [XmlType("Item")]
     public class ItemModel
