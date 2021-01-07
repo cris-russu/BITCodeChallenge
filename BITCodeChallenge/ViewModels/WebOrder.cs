@@ -1,9 +1,7 @@
 ﻿using BITCodeChallenge.Models;
 using System.Linq;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Globalization;
+using BITCodeChallenge.Logic;
 
 namespace BITCodeChallenge.ViewModels
 {
@@ -27,7 +25,7 @@ namespace BITCodeChallenge.ViewModels
 
             ID = webOrderModel.ID;
             Customer = webOrderModel.Customer;
-            Date = webOrderModel.GetParsedDate();
+            Date = WebOrderHelpers.GetParsedDate(webOrderModel.Date);
             Amount = webOrderModel.Items.Sum(i => i.Quantity);
             total = webOrderModel.Items.Select(x => x.Price * x.Quantity).Sum();
             Total = string.Format("{0: #,000.000}", total).Trim();
@@ -35,15 +33,16 @@ namespace BITCodeChallenge.ViewModels
             PriceAvg = string.Format("{0: #,000.000}", priceAvg).Trim();
         }
 
-        public override string ToString()
-        {
-            return $"ID: {ID} {Environment.NewLine}" +
-                $"Customer: {Customer} {Environment.NewLine}" +
-                $"Date: {Date} {Environment.NewLine}" +
-                $"Price average: {PriceAvg} {Environment.NewLine}" +
-                $"Amount of items: {Amount} {Environment.NewLine}" +
-                $"Total: {Total} {Environment.NewLine}";
-        }
+        // ToString() used early-on for some basic white-testing
+        //public override string ToString()
+        //{
+        //    return $"ID: {ID} {Environment.NewLine}" +
+        //        $"Customer: {Customer} {Environment.NewLine}" +
+        //        $"Date: {Date} {Environment.NewLine}" +
+        //        $"Price average: {PriceAvg} {Environment.NewLine}" +
+        //        $"Amount of items: {Amount} {Environment.NewLine}" +
+        //        $"Total: {Total} {Environment.NewLine}";
+        //}
 
     }
 }

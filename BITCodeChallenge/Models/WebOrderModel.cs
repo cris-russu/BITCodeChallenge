@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BITCodeChallenge.Models
 {
     [XmlRoot(ElementName = "WebOrder")]
     public class WebOrderModel
-    {
-        private readonly string datePattern = "yyyyMMdd";
-
+    {        
         [XmlAttribute("id")]
         public int ID { get; set; }
 
@@ -29,42 +24,24 @@ namespace BITCodeChallenge.Models
         public WebOrderModel()
         {
 
-        }
+        }       
 
-        public DateTime GetParsedDate()
-        {
-            DateTime parsedDate;
-            if (DateTime.TryParseExact(Date, datePattern, null, DateTimeStyles.None, out parsedDate))
-                return DateTime.ParseExact(Date, datePattern, CultureInfo.InvariantCulture);
-            else
-                return parsedDate;
+        // ToString() used early-on for some basic white-testing
+        //public override string ToString()
+        //{
+        //    string returnString = $"WebOrder ID: {this.ID} " +
+        //                          $"{Environment.NewLine} Customer: {Customer}" +
+        //                          $"{Environment.NewLine} Date: {Date}" +
+        //                          $"{Environment.NewLine}";
 
-        }
+        //    foreach (var item in Items)
+        //    {
+        //        returnString = returnString + item.ToString();
 
-        public T DeserializeToObject<T>(string filepath) where T : class
-        {
-            XmlSerializer ser = new XmlSerializer(typeof(T));
+        //    }
 
-            using StreamReader sr = new StreamReader(filepath);
-            return (T)ser.Deserialize(sr);
-        }
-
-
-        public override string ToString()
-        {
-            string returnString = $"WebOrder ID: {this.ID} " +
-                                  $"{Environment.NewLine} Customer: {Customer}" +
-                                  $"{Environment.NewLine} Date: {Date}" +
-                                  $"{Environment.NewLine}";
-
-            foreach (var item in Items)
-            {
-                returnString = returnString + item.ToString();
-
-            }
-
-            return returnString;
-        }
+        //    return returnString;
+        //}
     }
 
 
@@ -89,14 +66,16 @@ namespace BITCodeChallenge.Models
 
         }
 
-        public override string ToString()
-        {
-            return $"------------------------ {Environment.NewLine}" +
-                   $"Item ID: {ID} {Environment.NewLine}" +
-                   $"Description: {Description} {Environment.NewLine}" +
-                   $"Quantity: {Quantity} {Environment.NewLine}" +
-                   $"Price: {Price} {Environment.NewLine}";
-        }
+        // ToString() used early-on for some basic white-testing
+
+        //public override string ToString()
+        //{
+        //    return $"------------------------ {Environment.NewLine}" +
+        //           $"Item ID: {ID} {Environment.NewLine}" +
+        //           $"Description: {Description} {Environment.NewLine}" +
+        //           $"Quantity: {Quantity} {Environment.NewLine}" +
+        //           $"Price: {Price} {Environment.NewLine}";
+        //}
 
     }
 

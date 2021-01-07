@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System.Windows;
 using System.Xml.Serialization;
 using BITCodeChallenge.ViewModels;
+using BITCodeChallenge.Logic;
 
 namespace BITCodeChallenge
 {
@@ -39,14 +40,14 @@ namespace BITCodeChallenge
         private void btnProcessFile_Click(object sender, RoutedEventArgs e)
         {
             FilePath_TxtBox.Text = string.Empty;
-            WebOrderModel webOrder = new WebOrderModel();
-            webOrder = webOrder.DeserializeToObject<WebOrderModel>(filePath);
-            WebOrder woVM = new WebOrder(webOrder);
-            Id.Content = woVM.ID;
-            Customer.Content = woVM.Customer;
-            Date.Content = woVM.Date;
-            PriceAvg.Content = woVM.PriceAvg;
-            Total.Content = woVM.Total;
+            WebOrderModel webOrdeModel = WebOrderHelpers.DeserializeToObject<WebOrderModel>(filePath);
+            WebOrder webOrderView = new WebOrder(webOrdeModel);
+
+            Id.Content = webOrderView.ID;
+            Customer.Content = webOrderView.Customer;
+            Date.Content = webOrderView.Date;
+            PriceAvg.Content = webOrderView.PriceAvg;
+            Total.Content = webOrderView.Total;
 
         }
 
