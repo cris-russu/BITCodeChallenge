@@ -3,6 +3,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace BITCodeChallenge.ViewModels
 {
@@ -23,14 +24,15 @@ namespace BITCodeChallenge.ViewModels
         public WebOrder(WebOrderModel webOrderModel)
         {
             double total, priceAvg;
+
             ID = webOrderModel.ID;
             Customer = webOrderModel.Customer;
             Date = webOrderModel.GetParsedDate();
             Amount = webOrderModel.Items.Sum(i => i.Quantity);
             total = webOrderModel.Items.Select(x => x.Price * x.Quantity).Sum();
-            Total = string.Format("{0:C2}", total);
+            Total = string.Format("{0: #,000.000}", total).Trim();
             priceAvg = webOrderModel.Items.Average(i => i.Price);
-            PriceAvg = string.Format("{0:C2}", priceAvg);
+            PriceAvg = string.Format("{0: #,000.000}", priceAvg).Trim();
         }
 
         public override string ToString()
@@ -39,7 +41,7 @@ namespace BITCodeChallenge.ViewModels
                 $"Customer: {Customer} {Environment.NewLine}" +
                 $"Date: {Date} {Environment.NewLine}" +
                 $"Price average: {PriceAvg} {Environment.NewLine}" +
-                $"Amount of items: {Amount} {Environment.NewLine}"+
+                $"Amount of items: {Amount} {Environment.NewLine}" +
                 $"Total: {Total} {Environment.NewLine}";
         }
 

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BITCodeChallenge", "BITCodeChallenge\BITCodeChallenge.csproj", "{BE86BA84-E90E-4BFD-900F-BA245B06519F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BITCodeChallenge", "BITCodeChallenge\BITCodeChallenge.csproj", "{BE86BA84-E90E-4BFD-900F-BA245B06519F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BITCodeChallengeTests", "BITCodeChallengeTests\BITCodeChallengeTests.csproj", "{1F1C2ABC-0F21-444E-8BFB-B0A0B58183DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BE86BA84-E90E-4BFD-900F-BA245B06519F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE86BA84-E90E-4BFD-900F-BA245B06519F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE86BA84-E90E-4BFD-900F-BA245B06519F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F1C2ABC-0F21-444E-8BFB-B0A0B58183DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F1C2ABC-0F21-444E-8BFB-B0A0B58183DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F1C2ABC-0F21-444E-8BFB-B0A0B58183DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F1C2ABC-0F21-444E-8BFB-B0A0B58183DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

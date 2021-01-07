@@ -9,7 +9,7 @@ namespace BITCodeChallenge.Models
     [XmlRoot(ElementName = "WebOrder")]
     public class WebOrderModel
     {
-        private string datePattern = "yyyyMMdd";
+        private readonly string datePattern = "yyyyMMdd";
 
         [XmlAttribute("id")]
         public int ID { get; set; }

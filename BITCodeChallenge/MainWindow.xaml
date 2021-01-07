@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="423" Width="656" SizeToContent="WidthAndHeight">
-  
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -49,15 +49,15 @@
                 <Label FontSize="12" Grid.Column="0" Grid.Row="0">ID</Label>
                 <Label FontSize="12" Grid.Column="0" Grid.Row="1">Customer</Label>
                 <Label FontSize="12" Grid.Column="0" Grid.Row="2">Date</Label>
-                <Label FontSize="12" Grid.Column="0" Grid.Row="3">PriceAvg</Label> 
+                <Label FontSize="12" Grid.Column="0" Grid.Row="3">PriceAvg</Label>
                 <Label FontSize="12" Grid.Column="0" Grid.Row="4">Total</Label>
-                
+
                 <Label x:Name="Id" FontSize="12" Grid.Column="1" Grid.Row="0"></Label>
                 <Label x:Name="Customer" FontSize="12" Grid.Column="1" Grid.Row="1"></Label>
-                <Label x:Name="Date" ContentStringFormat="{}{0:dd. MMMM yyyy}" FontSize="12" Grid.Column="1" Grid.Row="2"></Label>
-                <Label x:Name="PriceAvg" ContentStringFormat="{}{0:N}" FontSize="12" Grid.Column="1" Grid.Row="3"></Label>
-                <Label x:Name="Total" ContentStringFormat="{}{0:N}" FontSize="12" Grid.Column="1" Grid.Row="4"></Label>
-        
+                <Label x:Name="Date" ContentStringFormat="{}{0:dd. MMMM. yyyy}" FontSize="12" Grid.Column="1" Grid.Row="2"></Label>
+                <Label x:Name="PriceAvg" FontSize="12" Grid.Column="1" Grid.Row="3"></Label>
+                <Label x:Name="Total" FontSize="12" Grid.Column="1" Grid.Row="4"></Label>
+
             </Grid>
         </GroupBox>
 
