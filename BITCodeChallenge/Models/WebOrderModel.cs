@@ -45,7 +45,8 @@ namespace BITCodeChallenge.Models
             XmlSerializer ser = new XmlSerializer(typeof(T));
 
             using StreamReader sr = new StreamReader(filepath);
-            return (T)ser.Deserialize(sr);
+                return (T)ser.Deserialize(sr);
+            }
         }
 
         public override string ToString()
@@ -58,6 +59,7 @@ namespace BITCodeChallenge.Models
             foreach (var item in Items)
             {
                 returnString = returnString + item.ToString();
+
             }
 
             return returnString;

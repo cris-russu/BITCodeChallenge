@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="423" Width="656" SizeToContent="WidthAndHeight"> 
+        Title="MainWindow" Height="423" Width="656" SizeToContent="WidthAndHeight">
+    
+    
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -30,8 +32,8 @@
         <Button x:Name="btnOpenFile_Btn" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" Click="btnOpenFile_Click" Content="..." Height="30" Width="auto" Padding="5,0,5,0" Margin="0,5,5,5" FontWeight="Bold" FontSize="14"/>
         <Button Click ="btnProcessFile_Click" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" Content="Process" Height="30" Width="auto" Padding="5,0,5,0" Margin="5" FontSize="16"/>
 
-        <!--GridRow 2 -->      
-            
+        <!--GridRow 2 -->
+
         <GroupBox Grid.Column="2" Header="Result" Grid.Row="2" Grid.ColumnSpan="3" Height="auto" Width="auto">
             <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
                 <Grid.ColumnDefinitions>
@@ -57,10 +59,10 @@
                 <Label x:Name="Date" ContentStringFormat="{}{0:dd. MMMM yyyy}" FontSize="12" Grid.Column="1" Grid.Row="2"></Label>
                 <Label x:Name="PriceAvg" ContentStringFormat="{}{0:N}" FontSize="12" Grid.Column="1" Grid.Row="3"></Label>
                 <Label x:Name="Total" ContentStringFormat="{}{0:N}" FontSize="12" Grid.Column="1" Grid.Row="4"></Label>
-                
+        
             </Grid>
         </GroupBox>
-        
+
 
     </Grid>
 </Window>
