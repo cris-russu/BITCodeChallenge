@@ -1,32 +1,44 @@
 using BITCodeChallenge.Logic;
 using BITCodeChallenge.Models;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 
 namespace BITCodeChallengeTests
 {
     public class DeserializationTests
     {
+        private static IEnumerable<string> GetFilePaths()
+        {
+            yield return GetPathToResource("InputFile.xml");
+            yield return GetPathToResource("InputFile_largeNumbers.xml");
+            yield return GetPathToResource("InputFile_AliceZoltan.xml");
+            yield return GetPathToResource("InputFile_JoanHarper.xml");
+        }
 
         [SetUp]
         public void Setup()
         {
+
         }
 
-        [Test]        
-        public void DeserializationTest1()
+        [Test, TestCaseSource("GetFilePaths")]
+        public void DeserializationTest1(string inputXMLPath)
         {
-            var inputXMLPath = GetPathToResource("InputFile.xml");
             WebOrderModel WOModel = WebOrderHelpers.DeserializeToObject<WebOrderModel>(inputXMLPath);
-            
-            var expected = 42;
-            var actual = WOModel.ID;
 
-            Assert.AreEqual(expected, actual);
-
-
+            if ((WOModel.ID.GetType().Equals(typeof(int)))
+                & (WOModel.Customer.GetType().Equals(typeof(string)))
+                & (WOModel.Date.GetType().Equals(typeof(string)))
+                & (WOModel.AvgUnitPrice.GetType().Equals(typeof(decimal)))
+                & (WOModel.Total.GetType().Equals(typeof(decimal))))
+                Assert.Pass();
+            else Assert.Fail();
         }
 
-        //Utility method. Was too lazy to look into proper System.Reflection-docs 
+
+
+        // Utility method. Was too lazy to look into proper System.Reflection-docs 
         private static string GetPathToResource(string nameOfFile)
         {
             var pathArray = System.Reflection.Assembly.GetExecutingAssembly().Location.Split('\\');
@@ -34,7 +46,7 @@ namespace BITCodeChallengeTests
 
             foreach (var item in pathArray)
             {
-                if (!item.Equals("bin"))
+                if (!item.ToLower().Equals("bin"))
                 {
                     newPath = newPath + item + "\\";
                 }
@@ -42,7 +54,11 @@ namespace BITCodeChallengeTests
             }
             return newPath + "Resources\\" + nameOfFile;
         }
+
+
+
+
     }
 
-    
+
 }
