@@ -17,7 +17,7 @@ namespace BITCodeChallenge
         public string filePath;
        
         //todo: handle window maximization properly
-        //todo: other cosmetic details
+ 
 
         public MainWindow()
         {

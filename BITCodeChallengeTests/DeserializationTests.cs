@@ -48,12 +48,6 @@ namespace BITCodeChallengeTests
             Assert.That(() => WebOrderHelpers.DeserializeToObject<WebOrderModel>(inputXMLPath), Throws.Exception);
         }
 
-        [Test]
-        public void DateFormatErrorTests()
-        {
-
-        }
-
 
         // Utility method. Was too lazy to look into proper System.Reflection-docs 
         private static string GetPathToResource(string nameOfFile)
@@ -73,10 +67,6 @@ namespace BITCodeChallengeTests
         }
 
 
-        //todo: more deserialization tests: tests that should fail 
-        //todo: tests for the helpers
-        //todo: tests for extraction and casting of properties logic
-        //todo: tests for property value conversion and formatting from xml to WebOrder class, ready to be displayed
 
     }
 
