@@ -26,10 +26,10 @@ namespace BITCodeChallenge.ViewModels
             ID = webOrderModel.ID;
             Customer = webOrderModel.Customer;
             Date = WebOrderHelpers.GetParsedDate(webOrderModel.Date);
-            Amount = webOrderModel.Items.Sum(i => i.Quantity);
-            total = webOrderModel.Items.Select(x => x.Price * x.Quantity).Sum();
+            Amount = webOrderModel.Items.Count != 0  ? webOrderModel.Items.Sum(i => i.Quantity) : 0;
+            total = webOrderModel.Items.Count !=0 ? webOrderModel.Items.Select(x => x.Price * x.Quantity).Sum() : 0;
             Total = string.Format("{0: #,000.000}", total).Trim();
-            priceAvg = webOrderModel.Items.Average(i => i.Price);
+            priceAvg = webOrderModel.Items.Count != 0 ? webOrderModel.Items.Average(i => i.Price) : 0;
             PriceAvg = string.Format("{0: #,000.000}", priceAvg).Trim();
         }
 

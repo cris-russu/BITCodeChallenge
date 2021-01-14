@@ -8,12 +8,18 @@ namespace BITCodeChallengeTests
 {
     public class DeserializationTests
     {
-        private static IEnumerable<string> GetFilePaths()
+        private static IEnumerable<string> ValidInputFiles()
         {
             yield return GetPathToResource("InputFile.xml");
             yield return GetPathToResource("InputFile_largeNumbers.xml");
             yield return GetPathToResource("InputFile_AliceZoltan.xml");
             yield return GetPathToResource("InputFile_JoanHarper.xml");
+        }
+
+        private static IEnumerable<string> DeserializingFailInputFiles()
+        {
+            yield return GetPathToResource("InputFile_emptyId.xml");
+            yield return GetPathToResource("InputFile_wrongTypeQuantity.xml");
         }
 
         [SetUp]
@@ -22,7 +28,7 @@ namespace BITCodeChallengeTests
 
         }
 
-        [Test, TestCaseSource("GetFilePaths")]
+        [Test, TestCaseSource("ValidInputFiles")]
         public void DeserializationTest1(string inputXMLPath)
         {
             WebOrderModel WOModel = WebOrderHelpers.DeserializeToObject<WebOrderModel>(inputXMLPath);
@@ -36,6 +42,17 @@ namespace BITCodeChallengeTests
             else Assert.Fail();
         }
 
+        [Test, TestCaseSource("DeserializingFailInputFiles")]
+        public void DeserializationTest2(string inputXMLPath)
+        {
+            Assert.That(() => WebOrderHelpers.DeserializeToObject<WebOrderModel>(inputXMLPath), Throws.Exception);
+        }
+
+        [Test]
+        public void DateFormatErrorTests()
+        {
+
+        }
 
 
         // Utility method. Was too lazy to look into proper System.Reflection-docs 
@@ -56,7 +73,10 @@ namespace BITCodeChallengeTests
         }
 
 
-
+        //todo: more deserialization tests: tests that should fail 
+        //todo: tests for the helpers
+        //todo: tests for extraction and casting of properties logic
+        //todo: tests for property value conversion and formatting from xml to WebOrder class, ready to be displayed
 
     }
 

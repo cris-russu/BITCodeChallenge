@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<Items>
-    <Item id="B1234" description="SAP Business One">      
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebOrder id="">
+  <Customer>John Smith</Customer>
+  <Date>20160327</Date>
+  <Items>
+    <Item id="B1234" description="SAP Business One">
       <Quantity>4</Quantity>
       <Price>133.33</Price>
     </Item>
@@ -14,4 +16,8 @@
       <Price>110.30</Price>
     </Item>
   </Items>
-    
+</WebOrder>
+
+
+
+
