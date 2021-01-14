@@ -15,9 +15,7 @@ namespace BITCodeChallenge
     public partial class MainWindow : Window
     {
         public string filePath;
-       
-        //todo: handle window maximization properly
- 
+        
 
         public MainWindow()
         {
